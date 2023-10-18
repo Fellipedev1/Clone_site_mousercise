@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafios - 2</title>
+    <style>
+        body {
+            background-color: white;
+
+        }
+
+        header {
+            background-color: lightblue;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            font-size: 10px;
+            position: fixed;
+            width: 100%;
+            height: 10px;
+            top: 0;
+            color: black;
+            font-family: cursive;
+        }
+
+        header img {
+            position: fixed;
+            right: 0;
+            margin-right: 20px;
+            margin-top: -23px;
+            width: 80px;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .image-container img {
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .texto {
+            text-align: left;
+            margin-top: -400px;
+            font-size: 10px;
+            padding-left: -10px;
+            padding-right: -90px;
+        }
+
+        button {
+            background-color: blue;
+            color: white;
+            align-items: center;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        p {
+            margin-top: 39px;
+            font-size: 9px;
+            text-align: left;
+            font-family: serif;
+        }
+
+        button {
+            position: absolute;
+            left: 40px;
+            top: 150px;
+            color: blueviolet;
+            background-color: azure;
+        }
+
+        .meio {
+            position: absolute;
+            left: 350px;
+            font-size: 10px;
+        }
+
+        .imagen {
+            position: absolute;
+            left: 330px;
+            top: 270px;
+
+        }
+
+        p {
+            text-align: center;
+        }
+
+        .seletores {
+            position: absolute;
+            left: 400px;
+            font-size: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Mousercise</h1>
+        <right><img src="mouse.png"></right>
+    </header>
+    <!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Selecionar Dia da Semana</title>
+    </head>
+    
+ 
+        
+      
+        
+        <body>
+            <p>A pequena caixa branca abaixo é uma caixa de lista suspensa. Clique na seta triangular preta à direita para abrir
+                a lista de opções e, a seguir, clique na opção desejada.
+            </p> <br>
+            <p style="position: absolute; top: 25px; left: 350px"> Selecione o dia de hoje (<span id="diaSemanaAtual"></span>) na caixa de
+                listagem suspensa e clique no botão 'Continuar'.</p>
+            <br>
+        
+            <p style="position: absolute; top: 40px; left: 480px">Hoje é:</p>
+            <div class="seletores">
+                <select id="diasSemana">
+                    <option value="domingo" style="font-size: 8px;">Domingo</option>
+                    <option value="segunda" style="font-size: 8px;">Segunda-feira</option>
+                    <option value="terca" style="font-size: 8px;">Terça-feira</option>
+                    <option value="quarta" style="font-size: 8px;">Quarta-feira</option>
+                    <option value="quinta" style="font-size: 8px;">Quinta-feira</option>
+                    <option value="sexta" style="font-size: 8px;">Sexta-feira</option>
+                    <option value="sabado" style="font-size: 8px;">Sábado</option>
+                </select>
+                  
+                <a href="index28.html">
+                <button id="avancarBtn" disabled>Avançar</button>
+            </a>
+            </div>
+            
+            <script>
+                var select = document.getElementById('diasSemana');
+                var diaSemanaAtual = document.getElementById('diaSemanaAtual');
+                var avancarBtn = document.getElementById('avancarBtn');
+            
+                // Array para mapear os índices dos dias da semana
+                var diasSemana = ['domingo', 'segunda', 'terca', 'quarta', 'quinta', 'sexta', 'sabado'];
+            
+                // Obtém o dia da semana atual
+                var today = new Date();
+                var currentDay = today.getDay(); 
+            
+                // Define o texto do dia da semana atual
+                diaSemanaAtual.textContent = diasSemana[currentDay];
+            
+                select.addEventListener('change', function() {
+                    var selectedDay = select.value;
+            
+                    if (selectedDay === diasSemana[currentDay]) {
+                        avancarBtn.disabled = false; 
+                    } else {
+                        avancarBtn.disabled = true;
+                    }
+                });
+            
+                avancarBtn.addEventListener('click', function() {
+                    alert('Avançando para a próxima fase!');
+                });
+            </script>
+        </body>
+        
+        </html>
+        
+ 
+
+    
+</body>
+
+</html>

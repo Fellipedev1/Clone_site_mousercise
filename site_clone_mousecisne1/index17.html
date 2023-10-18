@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafios - 2</title>
+    <style>
+        body {
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding-top: 60px;
+
+        }
+
+        header {
+            background-color: coral;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            font-size: 15px;
+            position: fixed;
+            width: 100%;
+            height: 30px;
+            top: 0;
+            color: black;
+        }
+
+        header img {
+            position: fixed;
+            right: 0;
+            margin-right: 20px;
+            margin-top: -29px;
+            width: 80px;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .image-container img {
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .texto {
+            text-align: left;
+            margin-top: -400px;
+            font-size: 10px;
+            padding-left: -10px;
+            padding-right: -90px;
+        }
+
+        button {
+            background-color: lightblue;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Mousercise</h1>
+        <right><img src="mouse.png"></right>
+    </header>
+    <div class="texto">
+    <p>As caixas de mensagens são mensagens curtas que o computador coloca na tela para alertá-lo sobre informações
+        importantes ou para fazer perguntas antes de realizar uma tarefa.</p>
+
+    <p> Quando uma caixa de mensagem aparecer, você deverá ler a mensagem ou pergunta e responder clicando no botão
+        apropriado na caixa de mensagem.</p>
+
+    <p> Clique no link abaixo para exibir uma caixa de mensagem, leia a mensagem e clique no botão apropriado na caixa. </p>
+</div>
+     
+<a href="index18.html" id="meuLink" style="font-size: 10px;">Clique em mim para exibir uma caixa de mensagem</a>
+
+<script>
+    
+    var meuLink = document.getElementById("meuLink");
+
+    // Adiciona um ouvinte de evento de clique ao link
+    meuLink.addEventListener("click", function (event) {
+         alert("Próxima Fase");
+    });
+</script>
+</body>
+
+</html>

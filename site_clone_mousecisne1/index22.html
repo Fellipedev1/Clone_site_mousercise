@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafios - 2</title>
+    <style>
+        body {
+            background-color: white;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        header {
+            background-color: pink;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            font-size: 13px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            color: black;
+            font-family: cursive;
+            height: 20px;
+        }
+
+        header img {
+            position: fixed;
+            right: 0;
+            margin-right: 20px;
+            margin-top: -26px;
+            width: 70px;
+        }
+
+        #blue-square {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+
+        #drag_me {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            position: absolute;
+            background-color: yellow;
+            height: 70px;
+            width: 90px;
+            color: black;
+            left: 90px;
+            top: 80px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #success-button {
+            background-color:white;
+            color: green;
+            padding: 10px 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin-top: 100px;
+        }
+
+
+        p {
+            margin-top: -330px;
+            font-size: 12px;
+            padding: 50px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Mousercise</h1>
+        <right><img src="mouse.png"></right>
+    </header>
+
+    <p>“Clicar e arrastar” é uma forma de mover determinados objetos na tela. Para mover um objeto, coloque o cursor do
+        mouse sobre ele, pressione e segure o botão esquerdo do mouse e mova o mouse. Depois de "arrastar" o objeto para o
+        local desejado, solte o botão do mouse.</p>
+
+    <div id="blue-square"></div>
+    <div id="drag_me">Arraste-me</div>
+
+    <div id="success-button" class="hidden">
+        <a href="index23.html">
+        <button style="color: blue;">Próximo</button></a>
+        </div>
+
+    <script>
+        var dragMe = document.getElementById("drag_me");
+        var blueSquare = document.getElementById("blue-square");
+        var successButton = document.getElementById("success-button");
+
+        var dragOfX = 10;
+        var dragOfY = 10;
+
+        function dragStart(e) {
+            dragOfX = e.pageX - dragMe.offsetLeft;
+            dragOfY = e.pageY - dragMe.offsetTop;
+
+            addEventListener("mousemove", dragMove);
+            addEventListener("mouseup", dragEnd);
+        }
+
+        function dragMove(e) {
+            dragMe.style.left = (e.pageX - dragOfX) + 'px';
+            dragMe.style.top = (e.pageY - dragOfY) + 'px';
+
+          
+            var dragRect = dragMe.getBoundingClientRect();
+            var blueRect = blueSquare.getBoundingClientRect();
+
+            if (dragRect.left >= blueRect.left && dragRect.right <= blueRect.right &&
+                dragRect.top >= blueRect.top && dragRect.bottom <= blueRect.bottom) {
+                successButton.classList.remove("hidden");
+            } else {
+                successButton.classList.add("hidden");
+            }
+        }
+
+        function dragEnd() {
+            removeEventListener("mousemove", dragMove);
+            removeEventListener("mouseup", dragEnd);
+        }
+
+        dragMe.addEventListener("mousedown", dragStart);
+    </script>
+</body>
+
+</html>

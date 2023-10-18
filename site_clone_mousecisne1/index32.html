@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafios - 2</title>
+    <style>
+        body {
+            background-color: #F0F8FF;
+
+        }
+
+        header {
+            background-color: lightblue;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            font-size: 10px;
+            position: fixed;
+            width: 100%;
+            height: 10px;
+            top: 0;
+            color: black;
+            font-family: cursive;
+        }
+
+        header img {
+            position: fixed;
+            right: 0;
+            margin-right: 20px;
+            margin-top: -23px;
+            width: 80px;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .image-container img {
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .texto {
+            text-align: left;
+            margin-top: -400px;
+            font-size: 10px;
+            padding-left: -10px;
+            padding-right: -90px;
+        }
+
+        button {
+            background-color: blue;
+            color: white;
+            align-items: center;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        p {
+            margin-top: 39px;
+            font-size: 9px;
+            text-align: left;
+            font-family: serif;
+        }
+
+        button {
+            position: absolute;
+            left: 30px;
+            top: 200px;
+            color: black;
+            background-color: greenyellow;
+            border-radius: 10px;
+        }
+
+        .meio {
+            position: absolute;
+            left: 350px;
+            font-size: 10px;
+        }
+
+        .imagen {
+            position: absolute;
+            left: 330px;
+            top: 270px;
+
+        }
+
+        p {
+            text-align: left;
+            font-size: 9px;
+            margin-top: 50px;
+        }
+
+        .seletores {
+            position: absolute;
+            top: 100px;
+            left: 7px;
+            font-size: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Mousercise</h1>
+        <right><img src="mouse.png"></right>
+    </header>
+
+
+    <p style="text-align: center; margin-top: 80px;">Pratique suas habilidades de copiar e colar <strong>copiando
+        </strong> as respostas na coluna
+        da esquerda e <strong>colando</strong> -as ao lado das
+        perguntas corretas à direita.</p><br>
+
+    <p style="text-align: center; margin-top: 10px;">
+        Para <strong>copiar</strong> o texto, destaque-o com o mouse, mantenha pressionada a tecla <strong>Ctrl</strong>
+        do teclado e toque rapidamente na
+        tecla <strong>C</strong>. Para <strong> colar</strong> , clique dentro da caixa de texto onde deseja colar a
+        resposta, mantenha pressionada a tecla
+        <strong>Ctrl</strong> e toque rapidamente na tecla <strong> V</strong>.
+    </p><br>
+
+    <p style="text-align: center; margin-top: 10px;">Você deve responder todas as perguntas corretamente antes de
+        continuar ⬇️</p>
+
+    <hr>
+
+    <strong>
+        <p style="position: absolute; font-size: 12px;">Respostas:</p>
+    </strong>
+
+    <strong>
+        <p style="position: absolute; left: 90px; font-size: 12px;">Perguntas:</p>
+    </strong>
+
+    <p style="position: absolute; top: 250px; "> monitor</p>
+
+    <p style="position: absolute; top: 270px;">hard drive</p>
+
+    <p style="position: absolute; top: 290px;">mouse</p>
+
+    <p style="position: absolute; top: 310px;">mouse pad</p>
+
+    <p style="position: absolute; top: 330px;">scroll wheel</p>
+
+    <p style="position: absolute; top: 250px; left: 100px;"> A. Que dispositivo de clique você está aprendendo a usar?
+        <input type="text" id="respostaA" style="height: 10px;">
+    </p>
+
+    <p style="position: absolute; top: 270px;left: 100px;"> B. O que um mouse se move?
+        <input type="text" id="respostaB" style="height: 10px;">
+    </p>
+
+    <p style="position: absolute; top: 290px; left: 100px;"> C. Você está lendo isto no ______.
+        <input type="text" id="respostaC" style="height: 10px;">
+    </p>
+
+    <p style="position: absolute; top: 310px; left: 100px;"> D. Mova uma página para cima e para baixo rolando ______.
+        <input type="text" id="respostaD" style="height: 10px;">
+    </p>
+
+    <p style="position: absolute; top: 330px; left: 100px;"> E. O trabalho é salvo no ______ do computador
+        <input type="text" id="respostaE" style="height: 10px;" aria-label="Resposta E">
+
+    </p>
+
+    <button id="verificar" style="position: absolute; left: 450px; top: 420px;">Verificar Respostas</button>
+
+
+
+
+
+
+
+    <p style="position: absolute; top: -0px; left: 350px; font-size: 16px; color: red;">Falaa, </p>
+
+    <div id="resultado" style="position: absolute; top: 51px; left: 400px; font-size: 14px; color: red;"></div>
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("verificar").addEventListener("click", function () {
+                var respostaA = document.getElementById("respostaA").value.toLowerCase().trim();
+                var respostaB = document.getElementById("respostaB").value.toLowerCase().trim();
+                var respostaC = document.getElementById("respostaC").value.toLowerCase().trim();
+                var respostaD = document.getElementById("respostaD").value.toLowerCase().trim();
+                var respostaE = document.getElementById("respostaE").value.toLowerCase().trim();
+
+                if (respostaA === "mouse" && respostaB === "mouse pad" && respostaC === "monitor" && respostaD ===
+                    "scroll wheel" && respostaE === "hard drive") {
+                    alert("Proxima!");
+
+                    window.location.href = "index33.html";
+                } else {
+                    alert(
+                        "Infelizmente algumas respostas estão incorretas. Recareregue a pagina para fazeer novamente"
+                    );
+                }
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            var primeiroNome = sessionStorage.getItem("primeiroNome");
+            var segundoNome = sessionStorage.getItem("segundoNome");
+
+
+            var resultadoDiv = document.getElementById("resultado");
+            resultadoDiv.textContent = " " + primeiroNome + " " + segundoNome;
+        });
+
+
+
+
+        var inputElements = document.querySelectorAll('#respostaA, #respostaB, #respostaC, #respostaD, #respostaE');
+
+
+        inputElements.forEach(function (inputElement) {
+            inputElement.addEventListener('keydown', function (event) {
+
+                if (!(event.ctrlKey && (event.key === 'c' || event.key === 'v'))) {
+                    event.preventDefault();
+                }
+            });
+        });
+    </script>
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

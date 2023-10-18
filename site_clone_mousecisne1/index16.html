@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafios - 2</title>
+    <style>
+        body {
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding-top: 60px;
+        }
+
+        header {
+            background-color: coral;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            font-size: 10px;
+            position: fixed;
+            width: 100%;
+            height: 30px;
+            top: 0;
+            color: black;
+            font-family: cursive;
+        }
+
+        header img {
+            position: fixed;
+            right: 0;
+            margin-right: 20px;
+            margin-top: -29px;
+            width: 80px;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .image-container img {
+        
+            cursor: pointer;
+            
+        }
+
+        .hidden {
+            display: none;
+            background-color: blue;
+        }
+
+        p {
+            margin-top: -340px;
+            font-size: 10px;
+            text-align: center;
+        }
+
+        button {
+            background-color: lightblue;
+            color: black;
+            position: absolute;
+            top: 400px;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Mousercise</h1>
+        <right><img src="mouse.png"></right>
+    </header>
+
+    <p><strong>Clique duas vezes</strong> em cada um dos fogos de artifício abaixo para ativá-los e prossiga para a próxima página.</p>
+    <div class="image-container">
+        <img src="fogo.gif"  style="position: absolute; top:200px; left:290px;" >
+        <img src="fogo.gif" >
+        <img src="fogo.gif" >
+        <img src="fogo.gif"  style="position: absolute; top:200px; left: 430px;">
+        <img src="fogo.gif" >
+        <img src="fogo.gif" style="position: absolute; top:200px; left:550px;">
+        <img src="fogo.gif" >
+        <img src="fogo.gif" style="position: absolute; top:200px; left:670px;">
+
+    </div>
+    
+    <a href="index17.html"><button id="continueButton" disabled>Continue</button></a>
+    
+    <script>
+        
+        const images = document.querySelectorAll('.image-container img');
+        let lastClickTime = 0;
+    
+
+        function handleImageClick() {
+            const currentTime = new Date().getTime();
+            const timeDiff = currentTime - lastClickTime;
+    
+            if (timeDiff < 300) {
+                
+                this.style.display = 'none';
+    
+                
+                if (document.querySelectorAll('.image-container img[style*="display: none;"]').length === images.length) {
+                    document.getElementById('continueButton').removeAttribute('disabled');
+                }
+            }
+    
+            lastClickTime = currentTime;
+        }
+    
+        images.forEach(image => {
+            image.addEventListener('click', handleImageClick);
+        });
+    </script>
+    
+
+   
+</body>
+
+</html>

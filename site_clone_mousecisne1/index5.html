@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafios - 2</title>
+    <style>
+        body {
+            background-color: white;
+        }
+
+        header {
+            background-color: greenyellow;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            height: 20px;
+
+        }
+
+
+        img {
+            margin-top: -100px;
+            height: 30px;
+            padding-left: 700px;
+            margin-top: -190px;
+        }
+
+        p {
+            font-size: 8px;
+            text-align: center;
+        }
+
+     
+    </style>
+</head>
+
+<header>
+    <h1 style="text-align: left;">Mousercise</h1>
+
+
+</header>
+<img src="mouse.png" style="position: absolute; left: 330px;top: 200px;">
+<body>
+    <p style="font-size: 10px;">Clique no número 11 abaixo para continuar. Tenha cuidado para não clicar nos 7 ao redor, ou você será enviado de
+        volta à página inicial!<br>
+    <p style="text-align: center; font-size: 10px;">
+        (Dica: quando o cursor do mouse mudar para o formato de uma mão, coloque a ponta do dedo no meio do link no qual
+        deseja clicar) </p>
+ 
+   
+        <div style="display: flex; justify-content: center;">
+            <a href="index2.html" style="text-align: center; margin: 5px;cursor:default;">7</a>
+           
+            <a href="index2.html" style="text-align: center; margin: 5px;cursor:default;">7</a>
+           
+            <a href="index2.html" style="text-align: center; margin: 5px;cursor:default;">7</a>
+            <br>
+        </div>
+        
+        <div style="display: flex; justify-content: center;">
+            <a href="index2.html" style="text-align: center;margin:5px ;cursor:default;">7</a>
+            <a href="index6.html" style="text-align: center;margin: 5px;">11</a>
+            <a href="index2.html" style="text-align: center;margin: 5px;cursor:default;">7</a>
+        </div>
+    
+        <div style="display: flex; justify-content: center;">
+            <a href="index2.html" style="text-align: center;margin: 5px;cursor:default;">7</a>
+            <a href="index2.html" style="text-align: center; margin: 5px;cursor:default;">7</a>
+            <a href="index2.html" style="text-align: center; margin: 5px;cursor:default;">7</a>
+        </div>
+    
+        
+    <script>
+        var cliques = 0;
+
+        document.addEventListener("click", function () {
+            cliques++;
+            localStorage.setItem("cliques", cliques);
+        });
+
+
+    </script>
+
+
+
+
+
+</body>
+
+</html>

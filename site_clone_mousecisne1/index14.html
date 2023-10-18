@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafios - 2</title>
+    <style>
+        body {
+            background-color: white;
+        }
+
+        header {
+            background-color: greenyellow;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            height: 10px;
+            font-size: 10px;
+        }
+
+        img {
+            margin-top: -100px;
+            height: 30px;
+            padding-left: 750px;
+            margin-top: -10px;
+        }
+
+        p {
+            font-size: 10px;
+            text-align: left;
+        }
+
+        .imagem1 {
+            align-items: center;
+        }
+
+        .imagem {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .imagem img {
+            height: 50px;
+            width: 50px;
+        }
+
+        .camada2 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .camada2 img {
+            height: 50px;
+            width: 50px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        .circle {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+       
+        .checkbox-container {
+            display: none;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .circle-checkbox {
+            display: none;
+            margin: 5px;
+        }
+
+        .center-button {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .center-button button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 style="text-align: left;">Mousercise</h1>
+        <right> <img src="mouse.png" style="position: absolute; left: 270px; height: 50px; width: 50px; top: 10px;"></right>
+    </header>
+
+    <p>Clique em cada um das bolinhas abaixo para avançar para a próxima página.</p>
+    <div class="container">
+        <div class="circle" style="background-color: red;"></div>
+        <div class="circle" style="background-color: blue;"></div>
+        <div class="circle" style="background-color: green;"></div>
+        <div class="circle" style="background-color: yellow;"></div>
+        <div class="circle" style="background-color: orange;"></div>
+        <div class="circle" style="background-color: purple;"></div>
+        <div class="circle" style="background-color: pink;"></div>
+        <div class="circle" style="background-color: turquoise;"></div>
+        <div class="circle" style="background-color: brown;"></div>
+        <div class="circle" style="background-color: black;"></div>
+        
+        <div class="checkbox-container">
+            <div class="circle-checkbox"></div>
+            <div class="circle-checkbox"></div>
+            <div class="circle-checkbox"></div>
+            <div class="circle-checkbox"></div>
+            <div class="circle-checkbox"></div>
+            <div class="circle-checkbox"></div>
+            <div class="circle-checkbox"></div>
+            <div class="circle-checkbox"></div>
+            <div class="circle-checkbox"></div>
+            <div class="circle-checkbox"></div>
+        </div>
+        
+        <div class="center-button" id="button-container" style="display: none;">
+            <a href="index15.html">
+            <button id="final-button">Proxima fase</button>
+        </a>
+        </div>
+        
+        <img id="certoImage" src="certo.gif" style="display: none; position: absolute;">
+        
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const circles = document.querySelectorAll(".circle");
+                const circleImages = document.querySelectorAll(".circle-image");
+                const circleCheckboxes = document.querySelectorAll(".circle-checkbox");
+                const buttonContainer = document.getElementById("button-container");
+        
+                let clickedCircles = 0;
+        
+                circles.forEach(function (circle, index) {
+                    circle.addEventListener("click", function () {
+                        if (circle.style.display !== "none") {
+                            circle.style.display = "none";
+                            circleCheckboxes[index].style.display = "block";
+                            clickedCircles++;
+        
+                            if (clickedCircles === circles.length) {
+                                buttonContainer.style.display = "flex";
+                            }
+                        }
+                    });
+                });
+            });
+        </script>
+        
+        
+</body>
+</html>

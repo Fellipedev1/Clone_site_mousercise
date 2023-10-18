@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafios - 2</title>
+    <style>
+        body {
+            background-color: white;
+        }
+
+        header {
+            background-color: greenyellow;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            height: 20px;
+
+        }
+
+
+        img {
+            margin-top: -100px;
+            height: 30px;
+            padding-left: 700px;
+            margin-top: -190px;
+        }
+
+        p {
+            font-size: 8px;
+            text-align: center;
+        }
+
+     
+    </style>
+</head>
+
+<header>
+    <h1 style="text-align: left;">Mousercise</h1>
+  
+
+</header>
+<img src="mouse.png" style="position: absolute; left: 330px;top: 200px;">
+<body>
+  <p style="text-align: center; font-size: 10px;"> Muitas vezes você terá que clicar em botões, que podem aparecer em diversos estilos. Clique no botão abaixo para continuar.</p>
+  <center><a href="index10.html"><button>Clique aqui</button></a></center>
+   
+     
+    <script>
+        var cliques = 0;
+
+        document.addEventListener("click", function () {
+            cliques++;
+            localStorage.setItem("cliques", cliques);
+        });
+
+
+    </script>
+
+
+
+
+
+
+</body>
+
+</html>

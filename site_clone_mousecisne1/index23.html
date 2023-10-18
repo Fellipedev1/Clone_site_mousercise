@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafios</title>
+    <style>
+        body {
+            background-color: white;
+        }
+
+        header {
+            background-color: coral;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            font-size: 10px;
+            position: fixed;
+            width: 100%;
+            height: 10px;
+            top: 0;
+            color: black;
+            font-family: cursive;
+        }
+
+        header img {
+            position: fixed;
+            right: 0;
+            margin-right: 20px;
+            margin-top: -23px;
+            width: 80px;
+        }
+
+        .message-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: fixed;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            top: 0;
+            left: 0;
+            z-index: 999;
+            display: none;
+        }
+
+        .message {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        button {
+            background-color: blue;
+            color: white;
+            align-items: center;
+        }
+
+        p {
+            margin-top: 10px;
+            padding: 30px;
+        }
+    
+        
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Mousercise</h1>
+        <right><img src="mouse.png"></right>
+    </header>
+
+    <p>As caixas de seleção permitem selecionar uma ou mais opções de um grupo de opções. Clique dentro de cada uma das
+        caixas de seleção brancas abaixo para continuar.</p>
+    <div class="checkbox-container">
+        <input type="checkbox" id="checkbox1">
+        <label for="checkbox1" style="font-size: 12px;">Um</label>
+    </div>
+    <div class="checkbox-container">
+        <input type="checkbox" id="checkbox2">
+        <label for="checkbox2" style="font-size: 12px;">Dois</label>
+    </div>
+    <div class="checkbox-container">
+        <input type="checkbox" id="checkbox3">
+        <label for="checkbox3" style="font-size: 12px;">Três</label>
+    </div>
+    <div class="checkbox-container">
+        <input type="checkbox" id="checkbox4">
+        <label for="checkbox4" style="font-size: 12px;">Quatro</label>
+    </div>
+    <div class="checkbox-container">
+        <input type="checkbox" id="checkbox5">
+        <label for="checkbox5" style="font-size: 12px;">Cinco</label>
+    </div>
+    <div class="checkbox-container">
+        <input type="checkbox" id="checkbox6">
+        <label for="checkbox6" style="font-size: 12px;">Seis</label>
+    </div>
+    <div class="checkbox-container">
+        <input type="checkbox" id="checkbox7">
+        <label for="checkbox7" style="font-size: 12px;">Sete</label>
+    </div>
+    <div class="checkbox-container">
+        <input type="checkbox" id="checkbox8">
+        <label for="checkbox8" style="font-size: 12px;">Oito</label>
+    </div>
+    <div class="checkbox-container">
+        <input type="checkbox" id="checkbox9">
+        <label for="checkbox9" style="font-size: 12px;">Nove</label>
+    </div>
+
+    <center>
+        <a href="index24.html">
+            <button id="submitButton" disabled>Continuar</button>
+        </a>
+    </center>
+
+    <div class="message-container" id="messageContainer">
+        <div class="message">
+            Marque todos os checkboxes para continuar.
+        </div>
+    </div>
+
+    <script>
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        const submitButton = document.getElementById('submitButton');
+        const messageContainer = document.getElementById('messageContainer');
+
+        submitButton.addEventListener('click', () => {
+            const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+            if (!allChecked) {
+                messageContainer.classList.remove('hidden');
+            }
+        });
+
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+                if (allChecked) {
+                    submitButton.removeAttribute('disabled');
+                    messageContainer.classList.add('hidden');
+                } else {
+                    submitButton.setAttribute('disabled', 'true');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

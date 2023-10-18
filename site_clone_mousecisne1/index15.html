@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafios - 2</title>
+    <style>
+        body {
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding-top: 60px;
+
+        }
+
+        header {
+            background-color: greenyellow;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            font-size: 15px;
+            position: fixed;
+            width: 100%;
+            height: 30px;
+            top: 0;
+            color:blue;
+        }
+
+        header img {
+            position: fixed;
+            right: 0;
+            margin-right: 20px;
+            margin-top: -29px;
+            width: 80px;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        .image-container img {
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        button {
+            position:absolute;
+            top: 90px;
+        }
+        
+
+        .button {
+            cursor: pointer;
+            position: absolute;
+            top: 100px;
+     
+        }
+    
+        #amazon {
+            left: 50%;
+            top: 60%;
+        }
+    
+        #ebayShare {
+            left: 25%;
+            top: 50%;
+        }
+    
+        #linkedin {
+            left: 25%;
+            top: 40%;
+        }
+    
+        #outlook {
+            left: 50%;
+            top: 40%;
+        }
+    
+        #ebaySearch {
+            left: 50%;
+            top: 50%;
+        }
+    
+        #gmail {
+            left: 50%;
+            top: 30%;
+        }
+    
+        #meetup {
+            left: 25%;
+            top: 30%;
+        }
+    
+        #twitter {
+            left: 24%;
+            top: 61%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Mousercise</h1>
+        <right><img src="mouse.png"></right>
+    </header>
+
+    <p style="position: absolute; top: 50px;">Clique em cada uma das imagens abaixo para continuar para a próxima página.</p>
+
+    <div class="button-container">
+        <img id="amazon" class="button" src="http://mnl.mclinc.org/wp-content/uploads/ComputerLab/Mousercise2.0/images/button-amazon-cart.png" height="30px" width="90px">
+        <img id="ebayShare" class="button" src="http://mnl.mclinc.org/wp-content/uploads/ComputerLab/Mousercise2.0/images/button-ebay-share.png" height="30px" width="90px">
+        <img id="linkedin" class="button" src="http://mnl.mclinc.org/wp-content/uploads/ComputerLab/Mousercise2.0/images/button-linkedin-connect.png" height="30px" width="90px">
+        <img id="outlook" class="button" src="http://mnl.mclinc.org/wp-content/uploads/ComputerLab/Mousercise2.0/images/button-outlook-new.png" height="30px" width="90px">
+        <img id="ebaySearch" class="button" src="http://mnl.mclinc.org/wp-content/uploads/ComputerLab/Mousercise2.0/images/button-ebay-search.png" height="30px" width="90px">
+        <img id="gmail" class="button" src="http://mnl.mclinc.org/wp-content/uploads/ComputerLab/Mousercise2.0/images/button-gmail-send.png" height="30px" width="90px">
+        <img id="meetup" class="button" src="http://mnl.mclinc.org/wp-content/uploads/ComputerLab/Mousercise2.0/images/button-meetup-yes.png" height="30px" width="90px">
+        <img id="twitter" class="button" src="http://mnl.mclinc.org/wp-content/uploads/ComputerLab/Mousercise2.0/images/button-twitter-follow.png" height="30px" width="90px">
+    </div>
+      
+    
+    <img id="certoImage" src="certo.gif" style="display: none; position: absolute; top: 0; left: 0;">
+    
+    <a href="index16.html">
+        <button id="nextButton" class="hidden">Próxima Fase</button>
+    </a>
+    
+    <script>
+        var clickedImages = 0;
+    
+        function checkCompletion(imageId) {
+            var image = document.getElementById(imageId);
+            if (!image.clicked) {
+                image.clicked = true;
+                clickedImages++;
+                image.src = 'certo.gif'; 
+    
+                if (clickedImages >= 8) {
+                    var nextButton = document.getElementById('nextButton');
+                    nextButton.classList.remove('hidden');
+                }
+            }
+        }
+    
+        document.getElementById('amazon').addEventListener('click', function () {
+            checkCompletion('amazon');
+        });
+    
+        document.getElementById('ebayShare').addEventListener('click', function () {
+            checkCompletion('ebayShare');
+        });
+    
+        document.getElementById('linkedin').addEventListener('click', function () {
+            checkCompletion('linkedin');
+        });
+    
+        document.getElementById('outlook').addEventListener('click', function () {
+            checkCompletion('outlook');
+        });
+    
+        document.getElementById('ebaySearch').addEventListener('click', function () {
+            checkCompletion('ebaySearch');
+        });
+    
+        document.getElementById('gmail').addEventListener('click', function () {
+            checkCompletion('gmail');
+        });
+    
+        document.getElementById('meetup').addEventListener('click', function () {
+            checkCompletion('meetup');
+        });
+    
+        document.getElementById('twitter').addEventListener('click', function () {
+            checkCompletion('twitter');
+        });
+    
+        var nextButton = document.getElementById('nextButton');
+        nextButton.addEventListener('click', function () {
+            if (clickedImages >= 8) {
+                alert('Parabéns! Você passou para a próxima tela!');
+            } else {
+                alert('Por favor, clique em todas as imagens antes de prosseguir.');
+            }
+        });
+    </script>
+    
+
+
+</body>
+
+</html>

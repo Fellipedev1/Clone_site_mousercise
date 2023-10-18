@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafios - 2</title>
+    <style>
+        body {
+            background-color: white;
+        }
+
+        header {
+            background-color: greenyellow;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            height: 20px;
+
+        }
+
+
+        img {
+            margin-top: -100px;
+            height: 30px;
+            padding-left: 700px;
+            margin-top: -190px;
+        }
+
+        p {
+            font-size: 8px;
+            text-align: center;
+        }
+
+     
+    </style>
+</head>
+
+<header>
+    <h1 style="text-align: left;">Mousercise</h1>
+    <img src="mouse.png" style="position: absolute; left: 330px;top: 200px;">
+
+</header>
+
+<body>
+  <p style="text-align: center; font-size: 10px;"> Os botões podem ter muitos rótulos de texto diferentes. Clique no botão "Ir" abaixo para continuar.</p>
+  <center>
+    <a href="index11.html"><button>Ir</button></a>
+ 
+        
+       
+    </button>
+   </center>
+   
+     
+    <script>
+        var cliques = 0;
+
+        document.addEventListener("click", function () {
+            cliques++;
+            localStorage.setItem("cliques", cliques);
+        });
+
+
+    </script>
+    
+
+
+
+
+
+
+</body>
+
+</html>

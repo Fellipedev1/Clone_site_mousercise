@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafios - 2</title>
+    <style>
+        body {
+            background-color: lightpink;
+
+        }
+
+        header {
+            background-color: lightblue;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            font-size: 10px;
+            position: fixed;
+            width: 100%;
+            height: 10px;
+            top: 0;
+            color: black;
+            font-family: cursive;
+        }
+
+        header img {
+            position: fixed;
+            right: 0;
+            margin-right: 20px;
+            margin-top: -23px;
+            width: 80px;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .image-container img {
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .texto {
+            text-align: left;
+            margin-top: -400px;
+            font-size: 10px;
+            padding-left: -10px;
+            padding-right: -90px;
+        }
+
+        button {
+            background-color: blue;
+            color: white;
+            align-items: center;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        p {
+            margin-top: 39px;
+            font-size: 9px;
+            text-align: left;
+            font-family: serif;
+        }
+
+        button {
+            position: absolute;
+            left: 400px;
+            top: 150px;
+            color:chartreuse;
+            background-color: burlywood;
+            border-radius: 10px;
+        }
+
+        .meio {
+            position: absolute;
+            left: 350px;
+            font-size: 10px;
+        }
+
+        .imagen {
+            position: absolute;
+            left: 330px;
+            top: 270px;
+
+        }
+
+        p {
+            text-align: left;
+        }
+
+        .seletores {
+            position: absolute;
+            left: opx;
+            font-size: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Mousercise</h1>
+        <right><img src="mouse.png"></right>
+    </header>
+    <p>Selecione "Cinco" na caixa de listagem suspensa e clique no botão 'Continuar'.     </p>
+ 
+
+    <p style="text-align: left;">Selecione uma opção:</p>
+    <div class="seletores">
+        <select id="numeros">
+            <option value="um" style="font-size: 8px;">Um</option>
+            <option value="dois" style="font-size: 8px;">Dois</option>
+            <option value="tres" style="font-size: 8px;">Três</option>
+            <option value="quatro" style="font-size: 8px;">Quatro</option>
+            <option value="cinco" style="font-size: 8px;">Cinco</option>
+            <option value="seis" style="font-size: 8px;">Seis</option>
+            <option value="sete" style="font-size: 8px;">Sete</option>
+            <option value="oito" style="font-size: 8px;">Oito</option>
+            <option value="nove" style="font-size: 8px;">Nove</option>
+        </select>
+      
+        <a href="index29.html"><button id="avancarBtn" disabled>Avançar</button></a>
+    </div>
+    
+    <script>
+
+        var select = document.getElementById("numeros");
+        var avancarBtn = document.getElementById("avancarBtn");
+    
+        select.addEventListener("change", function() {
+           
+            if (select.value === "cinco") {
+                
+                avancarBtn.removeAttribute("disabled");
+            } else {
+             
+                avancarBtn.setAttribute("disabled", "true");
+            }
+        });
+    </script>
+    
+    
+
+    
+</body>
+
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafios - 2</title>
+    <style>
+        body {
+            background-color: white;
+
+        }
+
+        header {
+            background-color: lightblue;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            font-size: 10px;
+            position: fixed;
+            width: 100%;
+            height: 10px;
+            top: 0;
+            color: black;
+            font-family: cursive;
+        }
+
+        header img {
+            position: fixed;
+            right: 0;
+            margin-right: 20px;
+            margin-top: -23px;
+            width: 80px;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .image-container img {
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .texto {
+            text-align: left;
+            margin-top: -400px;
+            font-size: 10px;
+            padding-left: -10px;
+            padding-right: -90px;
+        }
+
+        button {
+            background-color: blue;
+            color: white;
+            align-items: center;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        p {
+            margin-top: 39px;
+            font-size: 9px;
+            text-align: left;
+            font-family: serif;
+        }
+
+        button {
+            position: absolute;
+            left: 390px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Mousercise</h1>
+        <right><img src="mouse.png"></right>
+    </header>
+    <p>Os botões de opção permitem escolher apenas uma opção de um grupo de opções. Clique em cada um dos botões de
+        opção abaixo para continuar.</p>
+    <div class="myCheckbox">
+        <input type="radio" id="vehicle1" name="vehicle10" value="Bike">
+        <label for="vehicle10" style="font-size: 9px;">Azul</label><br>
+
+        <input type="radio" id="vehicle2" name="vehicle1" value="Car">
+        <label for="vehicle11" style="font-size: 9px;">Vermelho</label><br>
+
+        <input type="radio" id="vehicle3" name="vehicle11" value="Boat">
+        <label for="vehicle12" style="font-size: 9px;">Verde</label><br>
+
+        <input type="radio" id="vehicle4" name="vehicle12" value="Bike">
+        <label for="vehicle13" style="font-size: 9px;">Amarelo</label><br>
+
+        <input type="radio" id="vehicle5" name="vehicle13" value="Car">
+        <label for="vehicle14" style="font-size: 9px;">Laranja</label><br>
+
+        <input type="radio" id="vehicle6" name="vehicle14" value="Boat">
+        <label for="vehicle15" style="font-size: 9px;">Roxo</label><br>
+
+        <input type="radio" id="vehicle7" name="vehicle15" value="Boat">
+        <label for="vehicle16" style="font-size: 9px;">Marron</label><br>
+
+        <input type="radio" id="vehicle8" name="vehicle16" value="Boat">
+        <label for="vehicle17" style="font-size: 9px;">Rosa </label><br>
+
+        <input type="radio" id="vehicle9" name="vehicle17" value="Boat">
+        <label for="vehicle18" style="font-size: 9px;">Malva</label><br>
+    </div>
+
+    <img src="pizza/meme.jpeg" style="width: 100px; height: 100px; position: absolute; left: 850px; top: 300px;">
+
+    <a href="index26.html">
+        <button id="submitButton" style="color: chartreuse; background-color: blueviolet;" disabled>Avançar 👏</button>
+    </a>
+
+    <script>
+        var radioButtons = document.querySelectorAll('input[type=radio]');
+
+        radioButtons.forEach(function(radioButton) {
+            radioButton.addEventListener('click', function() {
+                var allRadioButtonsSelected = true;
+                radioButtons.forEach(function(radio) {
+                    if (!radio.checked) {
+                        allRadioButtonsSelected = false;
+                    }
+                });
+
+                if (allRadioButtonsSelected) {
+                    document.getElementById("submitButton").disabled = false;
+                } else {
+                    document.getElementById("submitButton").disabled = true;
+                }
+            });
+        });
+</script>
+
+</body>
+
+</html>
